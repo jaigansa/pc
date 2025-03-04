@@ -1,0 +1,97 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "modules-left": ["hyprland/workspaces", "hyprland/window", "hyprland/submap"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "cpu", "memory", "disk", "temperature", "hyprland/language"],
+
+	"hyprland/workspaces": {
+	 "format": "{icon} <sub>{windows}</sub>",
+	 "format-window-separator": " ",
+	 "format-icons": {
+	   "1": "", 
+	   "2": "", 
+	   "3": "", 
+	   "4": "", 
+	   "5": "",
+	   "6": "",
+	   "7": "",
+	   "8": "",
+	   "9": "",
+	   "10": ""
+	 },
+	 "on-click": "hyprctl dispatch workspace {id}",
+	 "on-scroll-up": "hyprctl dispatch workspace e+1",
+	 "on-scroll-down": "hyprctl dispatch workspace e-1",
+	 "persistent-workspaces": {
+	   "*": 5
+	 },
+	 "window-rewrite-default": "",
+	 "window-rewrite": {
+	   "title<.*youtube.*>": "",
+	   "class<firefox>": "",
+	   "class<firefox> title<.*github.*>": "",
+	   "class<kitty>": "",
+	   "foot": "",
+	   "code": "󰨞"
+	 }
+	},
+
+
+"hyprland/window": {
+    "format": "{title}",
+    "rewrite": {
+        "^(.*) - kitty$": " Kitty",
+	"^(.*) — Mozilla Firefox$": "🌎 Firefox", 
+        "^(.*) - (.*)$": "$2"  
+    },
+    "separate-outputs": true
+},
+
+
+"hyprland/language": {
+    "format": " {}",
+    "format-us": "ENG",
+    "format-ta": "TAM",
+    "keyboard-name": "usb-keyboard"
+},
+"hyprland/submap": {
+    "format": "  {}",
+    "max-length": 8,
+    "tooltip": false
+},
+
+    "clock": {
+        "format": " {:%A, %b %d  %I:%M %p}",
+        "toltip-format": " {:%Y-%m-%d %H:%M:%S}",
+        "interval": 1
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "󰍛 {used}MB",
+        "tooltip": false
+    },
+    "disk": {
+        "format": " {percentage_used}%",
+        "tooltip": false,
+        "path": "/"
+    },
+    "network": {
+        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-ethernet": "󰛳 {bandwidthTotalBytes}",
+        "format-disconnected": " Offline",
+        "tooltip": true
+    },
+    "temperature": {
+     // "thermal-zone": 2,
+        "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
+	"critical-threshold": 80,
+	"format-critical": "{temperatureC}°C ",
+	"format": "{temperatureC}°C "
+    }
+}  
