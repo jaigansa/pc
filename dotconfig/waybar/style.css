@@ -1,0 +1,78 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 16px;
+    border: none;
+    box-shadow: none;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+#workspaces, #clock, #cpu, #memory, #disk,  #network, #temperature, #language, #submap{
+    padding: 0 12px;
+    border-radius: 6px;
+    margin: 3px;
+    background: rgba(49, 50, 68, 0.6);
+}
+
+#window {
+    font-weight: bold;
+    color: #a6e3a1;
+    padding: 0 12px;
+}
+
+
+#workspaces button {
+	font-size: 24px;
+    color: #f38ba8;
+    border-radius: 50px;
+    transition: all 0.2s ease-in-out;
+}
+#workspaces button:hover {
+	background: transparent;
+}
+#workspaces button.active {
+	color: #ff0000;
+}
+
+#workspaces button.empty {
+	color:#ffffff;
+}
+
+#workspaces button.visible {
+	color:#b4befe;
+}
+#workspaces button.urgent {
+	color:#89dceb;
+}
+
+/* Show sub-icons on hover */
+#workspaces button sub {
+    color: transparent;
+}
+
+
+#pipewire {
+    color: #fab387;
+}
+
+#network {
+    color: #89dceb;
+}
+
+#cpu, #clock, #language, #submap{
+    color: #f9e2af;
+}
+
+#memory {
+    color: #b4befe;
+}
+
+#disk {
+    color: #f38ba8;
+}
+
+#temperature {
+	color: #89dceb
+}
