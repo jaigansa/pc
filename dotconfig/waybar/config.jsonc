@@ -4,38 +4,39 @@
     "height": 40,
     "modules-left": ["hyprland/workspaces", "hyprland/window", "hyprland/submap"],
     "modules-center": ["clock"],
-    "modules-right": ["network", "cpu", "memory", "disk", "temperature", "hyprland/language"],
+    "modules-right": ["network", "cpu", "memory", "disk", "temperature","wireplumber", "hyprland/language"],
 
 	"hyprland/workspaces": {
-	 "format": "{icon} <sub>{windows}</sub>",
-	 "format-window-separator": " ",
-	 "format-icons": {
-	   "1": "", 
-	   "2": "", 
-	   "3": "", 
-	   "4": "", 
-	   "5": "",
-	   "6": "",
-	   "7": "",
-	   "8": "",
-	   "9": "",
-	   "10": ""
-	 },
-	 "on-click": "hyprctl dispatch workspace {id}",
-	 "on-scroll-up": "hyprctl dispatch workspace e+1",
-	 "on-scroll-down": "hyprctl dispatch workspace e-1",
-	 "persistent-workspaces": {
-	   "*": 5
-	 },
-	 "window-rewrite-default": "",
-	 "window-rewrite": {
-	   "title<.*youtube.*>": "",
-	   "class<firefox>": "",
-	   "class<firefox> title<.*github.*>": "",
-	   "class<kitty>": "",
-	   "foot": "",
-	   "code": "󰨞"
-	 }
+	  "format": "{icon} <sub>{windows}</sub>",
+	  "format-window-separator": " ",
+	  "format-icons": {
+	    "1": "", 
+	    "2": "", 
+	    "3": "", 
+	    "4": "", 
+	    "5": "",
+	    "6": "",
+	    "7": "",
+	    "8": "",
+	    "9": "",
+	    "10": ""
+	  },
+	  "on-click": "hyprctl dispatch workspace {id}",
+	  "on-scroll-up": "hyprctl dispatch workspace e+1",
+	  "on-scroll-down": "hyprctl dispatch workspace e-1",
+	  "persistent-workspaces": {
+	    "*": 5
+	  },
+	  "window-rewrite-default": "",
+	  "window-rewrite": {
+	    "title<.*youtube.*>": "",
+	    "class<firefox>": "",
+	    "class<firefox> title<.*github.*>": "",
+	    "class<kitty>": "",
+	    "class<thunar>": "",
+	    "foot": "",
+	    "code": "󰨞"
+	  }
 	},
 
 
@@ -52,7 +53,7 @@
 
 "hyprland/language": {
     "format": " {}",
-    "format-us": "ENG",
+    "format-en": "ENG",
     "format-ta": "TAM",
     "keyboard-name": "usb-keyboard"
 },
@@ -70,11 +71,13 @@
 
     "cpu": {
         "format": " {usage}%",
-        "tooltip": false
+        "tooltip": false,
+	"interval": 1
     },
     "memory": {
-        "format": "󰍛 {used}MB",
-        "tooltip": false
+        "format": " {percentage}%",
+        "tooltip": false,
+	"interval": 2
     },
     "disk": {
         "format": " {percentage_used}%",
@@ -93,5 +96,23 @@
 	"critical-threshold": 80,
 	"format-critical": "{temperatureC}°C ",
 	"format": "{temperatureC}°C "
+    },
+    "wireplumber": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     }
+}
 }  

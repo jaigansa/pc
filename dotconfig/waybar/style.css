@@ -9,7 +9,7 @@ window#waybar {
     background: transparent;
 }
 
-#workspaces, #clock, #cpu, #memory, #disk,  #network, #temperature, #language, #submap{
+#workspaces, #clock, #cpu, #memory, #disk,  #network, #temperature, #language, #submap, #wireplumber{
     padding: 0 12px;
     border-radius: 6px;
     margin: 3px;
@@ -65,7 +65,7 @@ window#waybar {
     color: #f9e2af;
 }
 
-#memory {
+#memory, #wireplumber {
     color: #b4befe;
 }
 
